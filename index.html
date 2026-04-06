@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> <!--Had to look up how do to fonts but this script should work. -->
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-<style>
+<!-- CSS below, im going to mark when I do anything with CSS as im not as good with it. -->
+    <style>
     body { font-family: 'Poppins', sans-serif; }
+    .categories {
+        display: flex;
+        text-align: center;
+    }
+    .categories a {
+        flex: 1;
+        text-decoration: none;
+        color: black;
+    }
+    .categories img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
 </style>
     
+<!-- CSS ends -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Goals</title>
@@ -25,6 +42,21 @@
             <li><a href="misc.html">Misc</a></li>
         </ul>
     </nav>
+
+    <div class="categories">
+        <a href="treats.html">
+            <img src="treats.png" alt="A stack of bone shaped dog biscuits">
+            <h2>Dog Treats</h2>
+        </a>
+        <a href="food.html">
+            <img src="food.png" alt="A bowl of dog food">
+            <h2>Dog Food</h2>
+        </a>
+        <a href="misc.html">
+            <img src="misc.png" alt="A red dog leash with a metal hook">
+            <h2>Dog Accessories</h2>
+        </a>
+    </div>
 
     <main>
         <section>
