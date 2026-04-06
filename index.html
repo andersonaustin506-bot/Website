@@ -9,13 +9,17 @@
         background-color: #e0e0e0;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         padding: 5px 20px;
+        position: relative;
     }
     header .logo {
         width: 150px;
     }
     header .text-logo {
-        margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         height: 40px;
     }
     header a {
@@ -40,6 +44,11 @@
         width: 60%;
         height: auto;
     }
+    footer {
+        background-color: #e0e0e0;
+        text-align: center;
+        padding: 10px;
+    }
 </style>
     
 <!-- CSS ends -->
@@ -49,7 +58,7 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="logo.png" alt="Pet Goals logo">
+        <a href="index.html"><img class="logo" src="logo.png" alt="Pet Goals logo"></a>
         <img class="text-logo" src="text.png" alt="Pet Goals">
         <a href="signin.html">Sign In</a>
     </header>
