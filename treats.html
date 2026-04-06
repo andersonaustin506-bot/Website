@@ -9,14 +9,18 @@
         background-color: #e0e0e0;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         padding: 5px 20px;
+        position: relative;
     }
     header .logo {
         width: 150px;
     }
     header .text-logo {
-        margin: 0 auto 0 150px;
-        height: 70px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 40px;
     }
     header a {
         color: black;
