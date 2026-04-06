@@ -90,20 +90,24 @@
         <img class="text-logo" src="text.png" alt="Pet Goals">
         <a href="signin.html">Sign In</a>
     </header>
-
     <main>
         <div class="login-box">
             <h1>Sign In</h1>
             <p>Demo / Peer Review login: test@petgoals.com / password123</p>
+
+            <!-- DOM (for the checklist), keep in mind the ID's for java later -->
             <label for="email">Email</label>
             <input type="email" id="email" placeholder="Enter your email">
             <label for="password">Password</label>
             <input type="password" id="password" placeholder="Enter your password">
+
+            <!-- DOM: This button calls the login() function in JavaScript when clicked -->
             <button onclick="login()">Sign In</button>
+
+            <!-- DOM (for the checklist) after login -->
             <p class="message" id="message"></p>
         </div>
     </main>
-
     <footer>
         <p>Our Partners</p>
         <ul class="partners">
@@ -114,20 +118,30 @@
         <p>&copy; 2026 Pet Goals</p>
     </footer>
 
+    <!-- Main DOM starts here for checklist -->
     <script>
         function login() {
+            // DOM: finds email box
             var email = document.getElementById("email").value;
+
+            // DOM: finds password box
             var password = document.getElementById("password").value;
+
+            // DOM: getElementById finds the message paragraph so we can update it later
             var message = document.getElementById("message");
 
+            // this checks if the deails put in is right, this is just a dumby account. Had to look up how to do this.
             if (email === "test@petgoals.com" && password === "password123") {
+                // DOM updates if someone gets the right info in
                 message.style.color = "green";
                 message.textContent = "Welcome to Pet Goals!";
             } else {
+                // DOM updates if someone gets the wrong info in
                 message.style.color = "red";
                 message.textContent = "Invalid email or password. Please try again.";
             }
         }
     </script>
+    <!-- DOM end -->
 </body>
 </html>
