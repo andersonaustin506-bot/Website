@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<!-- CSS starts here keep this in mind for later!!! this is a more complcated script so ill need to go back use this as a marker-->
+    <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; font-size: 16px; line-height: 1.5; }
+    header {
+        background-color: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 20px;
+        position: relative;
+    }
+    header .logo {
+        width: 150px;
+    }
+    header .text-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 40px;
+    }
+    header a {
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+    }
+    .login-box {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 30px;
+        text-align: center;
+    }
+    .login-box h1 {
+        margin-bottom: 20px;
+    }
+    .login-box label {
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .login-box input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    .login-box button {
+        background-color: #e0e0e0;
+        border: none;
+        padding: 12px 40px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .message {
+        margin-top: 15px;
+        font-weight: bold;
+    }
+    footer {
+        background-color: #e0e0e0;
+        text-align: center;
+        padding: 10px;
+    }
+    .partners {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 0;
+    }
+    .partners img {
+        height: 40px;
+    }
+</style>
+<!-- CSS ends here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Goals - Sign In</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img class="logo" src="logo.png" alt="Pet Goals logo"></a>
+        <img class="text-logo" src="text.png" alt="Pet Goals">
+        <a href="signin.html">Sign In</a>
+    </header>
+
+    <main>
+        <div class="login-box">
+            <h1>Sign In</h1>
+            <p>Demo login: test@petgoals.com / password123</p>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+            <button onclick="login()">Sign In</button>
+            <p class="message" id="message"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Our Partners</p>
+        <ul class="partners">
+            <li><a href="https://www.chewy.com/" target="_blank"><img src="chewy.png" alt="Chewy"></a></li>
+            <li><a href="https://www.petsmart.com/" target="_blank"><img src="petsmart.png" alt="PetSmart"></a></li>
+            <li><a href="https://www.aspca.org/" target="_blank"><img src="aspca.png" alt="ASPCA"></a></li>
+        </ul>
+        <p>&copy; 2026 Pet Goals</p>
+    </footer>
+
+    <script>
+        function login() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var message = document.getElementById("message");
+
+            if (email === "test@petgoals.com" && password === "password123") {
+                message.style.color = "green";
+                message.textContent = "Welcome to Pet Goals!";
+            } else {
+                message.style.color = "red";
+                message.textContent = "Invalid email or password. Please try again.";
+            }
+        }
+    </script>
+</body>
+</html>
