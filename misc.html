@@ -29,6 +29,16 @@
         text-decoration: none;
         font-size: 20px;
     }
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .cart-icon {
+        height: 32px;
+        width: auto;
+        cursor: pointer;
+    }
     .products {
         display: flex;
         flex-wrap: wrap;
@@ -133,7 +143,10 @@
     <header>
         <a href="index.html"><img class="logo" src="logo.png" alt="Pet Goals logo"></a>
         <img class="text-logo" src="text.png" alt="Pet Goals">
-        <a href="signin.html">Sign In</a>
+        <div class="header-right">
+            <a href="signin.html">Sign In</a>
+            <a href="cart.html"><img class="cart-icon" src="thisisacart.png" alt="Shopping cart"></a>
+        </div>
     </header>
     <main>
         <h1 style="text-align: center;">Dog Accessories</h1>
