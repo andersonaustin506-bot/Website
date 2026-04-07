@@ -30,6 +30,16 @@
         text-decoration: none;
         font-size: 20px;
     }
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .cart-icon {
+        height: 32px;
+        width: auto;
+        cursor: pointer;
+    }
     .spacer {
         height: 20px;
     }
@@ -153,7 +163,10 @@
     <header>
         <a href="index.html"><img class="logo" src="logo.png" alt="Pet Goals logo"></a>
         <img class="text-logo" src="text.png" alt="Pet Goals">
-        <a href="signin.html">Sign In</a>
+        <div class="header-right">
+            <a href="signin.html">Sign In</a>
+            <a href="cart.html"><img class="cart-icon" src="thisisacart.png" alt="Shopping cart"></a>
+        </div>
     </header>
     <div class="spacer"></div>
     <div class="categories">
