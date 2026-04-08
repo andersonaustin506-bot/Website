@@ -1,2 +1,1 @@
-# Website
-This is a  website
+This is a demo website for a school project. This website is not for profit nor for normal use outside of school activities. No brands listed are contributors to this website and should not be referred to as such outside of this project's small scope. All products and logos belong to the original creators and brands.
