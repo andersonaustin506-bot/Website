@@ -2,59 +2,7 @@
 
 /* refernce this for checklist later me!  */
 
-/* Cart page table also for checklist */
-.cart-wrapper {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-.cart-wrapper h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.cart-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'Poppins', sans-serif;
-}
-.cart-table th,
-.cart-table td {
-    border: 1px solid #ccc;
-    padding: 12px 15px;
-    text-align: left;
-}
-.cart-table th {
-    background-color: #e0e0e0;
-}
-.cart-table tr:nth-child(even) td {
-    background-color: #f9f9f9;
-}
-.cart-table .total-row td {
-    font-weight: bold;
-    background-color: #e0e0e0;
-}
-.cart-empty {
-    text-align: center;
-    padding: 40px;
-    color: #666;
-}
-.cart-actions {
-    text-align: center;
-    margin-top: 25px;
-}
-.cart-actions button {
-    background-color: #e0e0e0;
-    border: none;
-    padding: 12px 30px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 5px;
-}
-.cart-limit-msg {
-    text-align: center;
-    color: #b00;
-    font-weight: bold;
-    margin-top: 15px;
-    min-height: 20px;
-}
+/* Make all "Add to Cart" buttons highlight across the whole site */
+button:hover {
+    background-color: #c8c8c8 !important;
+    transition: background-color 0.2s;
