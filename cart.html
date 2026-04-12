@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/opendyslexic@0.0.1/index.min.css" rel="stylesheet">
+<!-- CSS starts here remember that-->
+    <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; font-size: 16px; line-height: 1.5; }
+    body.dyslexic, body.dyslexic * { font-family: 'OpenDyslexic', 'Comic Sans MS', sans-serif !important; }
+    header {
+        background-color: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 20px;
+        position: relative;
+    }
+    header .logo { width: 150px; }
+    header .text-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 40px;
+    }
+    header a { color: black; text-decoration: none; font-size: 20px; }
+    .header-right { display: flex; align-items: center; gap: 20px; }
+    .cart-icon { height: 32px; width: auto; cursor: pointer; }
+
+    /* Cart page specific for later, mark this for editing later */
+    .cart-wrapper {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    .cart-wrapper h1 { text-align: center; }
+    .cart-note { text-align: center; color: #666; margin-bottom: 20px; }
+    .cart-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .cart-table th, .cart-table td {
+        border: 1px solid #ccc;
+        padding: 12px 15px;
+        text-align: left;
+    }
+    .cart-table th { background-color: #e0e0e0; }
+    .cart-table tr:nth-child(even) td { background-color: #f9f9f9; }
+    .total-row td {
+        font-weight: bold;
+        background-color: #e0e0e0 !important;
+    }
+    .cart-actions { text-align: center; margin-top: 25px; }
+    .cart-actions button {
+        background-color: #e0e0e0;
+        border: none;
+        padding: 12px 30px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 5px;
+    }
+
+    footer {
+        background-color: #e0e0e0;
+        text-align: center;
+        padding: 10px;
+    }
+    .partners {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 0;
+    }
+    .partners img { height: 40px; }
+
+    /* acs tab start (should be the same as others) */
+    .access-tab {
+        position: fixed; left: 0; top: 50%;
+        transform: translateY(-50%);
+        background-color: #444; color: white;
+        padding: 12px 8px; cursor: pointer;
+        writing-mode: vertical-rl;
+        border-radius: 0 6px 6px 0;
+        font-size: 14px; z-index: 1000;
+    }
+    .access-panel {
+        position: fixed; left: -260px; top: 50%;
+        transform: translateY(-50%);
+        width: 240px; background-color: white;
+        border: 2px solid #444; padding: 20px;
+        transition: left 0.3s; z-index: 999;
+        border-radius: 0 6px 6px 0; text-align: center;
+    }
+    .access-panel.open { left: 40px; }
+    .access-panel h3 { margin-top: 0; }
+    .access-panel label {
+        display: flex; align-items: center;
+        justify-content: center; gap: 10px; cursor: pointer;
+    }
+    /* acs tab end */
+</style>
+<!-- CSS ends here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Goals - Shopping Cart</title>
+</head>
+<body>
+
+    <!-- acs tab start -->
+    <div class="access-tab" onclick="togglePanel()">Accessibility</div>
+    <div class="access-panel" id="accessPanel">
+        <h3>Accessibility</h3>
+        <label>
+            <input type="checkbox" id="dyslexicToggle" onclick="toggleDyslexic()">
+            Dyslexic-friendly font
+        </label>
+    </div>
+    <!-- acs tab end -->
+
+    <header>
+        <a href="index.html"><img class="logo" src="logo.png" alt="Pet Goals logo"></a>
+        <img class="text-logo" src="text.png" alt="Pet Goals">
+        <div class="header-right">
+            <a href="signin.html">Sign In</a>
+            <a href="cart.html"><img class="cart-icon" src="thisisacart.png" alt="Shopping cart"></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="cart-wrapper">
+            <h1>Your Shopping Cart</h1>
+            <p class="cart-note">Note: A maximum of 3 items can be checked out at a time.</p>
+
+            <!-- This is the HTML table that the checklist asks for at least once, ill mark this here for when its looked at or for easy looking -->
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3" style="text-align:center; padding: 30px; color: #666;">
+                            Your cart is empty. Add some items from our shop!
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td>Total</td>
+                        <td>$0.00</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="cart-actions">
+                <button>Checkout</button>
+                <button>Clear Cart</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Our Partners</p>
+        <ul class="partners">
+            <li><a href="https://www.chewy.com/" target="_blank"><img src="chewy.png" alt="Chewy"></a></li>
+            <li><a href="https://www.petsmart.com/" target="_blank"><img src="petsmart.png" alt="PetSmart"></a></li>
+            <li><a href="https://www.aspca.org/" target="_blank"><img src="aspca.png" alt="ASPCA"></a></li>
+        </ul>
+        <p>&copy; 2026 Pet Goals</p>
+    </footer>
+
+    <!-- acs tab scripts (just like the other)-->
+    <script>
+        function togglePanel() {
+            document.getElementById("accessPanel").classList.toggle("open");
+        }
+        function toggleDyslexic() {
+            document.body.classList.toggle("dyslexic");
+            localStorage.setItem("dyslexic", document.body.classList.contains("dyslexic"));
+        }
+        if (localStorage.getItem("dyslexic") === "true") {
+            document.body.classList.add("dyslexic");
+            document.getElementById("dyslexicToggle").checked = true;
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
