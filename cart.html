@@ -59,6 +59,12 @@
         cursor: pointer;
         margin: 0 5px;
     }
+    .cart-msg {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 15px;
+        min-height: 20px;
+    }
 
     footer {
         background-color: #e0e0e0;
@@ -141,7 +147,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="cartBody">
                     <tr>
                         <td colspan="3" style="text-align:center; padding: 30px; color: #666;">
                             Your cart is empty. Add some items from our shop please!
@@ -151,16 +157,17 @@
                 <tfoot>
                     <tr class="total-row">
                         <td>Total</td>
-                        <td>$0.00</td>
+                        <td id="cartTotal">$0.00</td>
                         <td></td>
                     </tr>
                 </tfoot>
             </table>
 
             <div class="cart-actions">
-                <button>Checkout</button>
-                <button>Clear Cart</button>
+                <button onclick="checkout()">Checkout</button>
+                <button onclick="clearCart()">Clear Cart</button>
             </div>
+            <p class="cart-msg" id="cartMsg"></p>
         </div>
     </main>
 
@@ -187,6 +194,73 @@
             document.body.classList.add("dyslexic");
             document.getElementById("dyslexicToggle").checked = true;
         }
+    </script>
+
+    <!-- Cart display logic, this should be what ties all of it togeather-->
+    <script>
+        function getCart() {
+            var raw = localStorage.getItem("petGoalsCart");
+            return raw ? JSON.parse(raw) : [];
+        }
+        function saveCart(cart) {
+            localStorage.setItem("petGoalsCart", JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            var cart = getCart();
+            var body = document.getElementById("cartBody");
+            var totalCell = document.getElementById("cartTotal");
+            body.innerHTML = "";
+            var total = 0;
+
+            if (cart.length === 0) {
+                body.innerHTML = '<tr><td colspan="3" style="text-align:center; padding: 30px; color: #666;">Your cart is empty. Add some items from our shop please!</td></tr>';
+                totalCell.textContent = "$0.00";
+                return;
+            }
+
+            for (var i = 0; i < cart.length; i++) {
+                var item = cart[i];
+                total += item.price;
+                var row = document.createElement("tr");
+                row.innerHTML =
+                    "<td>" + item.name + "</td>" +
+                    "<td>$" + item.price.toFixed(2) + "</td>" +
+                    '<td><button onclick="removeItem(' + i + ')">Remove</button></td>';
+                body.appendChild(row);
+            }
+            totalCell.textContent = "$" + total.toFixed(2);
+        }
+
+        function removeItem(index) {
+            var cart = getCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            document.getElementById("cartMsg").textContent = "";
+            renderCart();
+        }
+
+        function clearCart() {
+            saveCart([]);
+            document.getElementById("cartMsg").textContent = "";
+            renderCart();
+        }
+
+        function checkout() {
+            var cart = getCart();
+            var msg = document.getElementById("cartMsg");
+            if (cart.length === 0) {
+                msg.style.color = "#b00";
+                msg.textContent = "Your cart is empty!";
+                return;
+            }
+            msg.style.color = "green";
+            msg.textContent = "Thank you for your order! (Demo checkout)";
+            saveCart([]);
+            renderCart();
+        }
+
+        renderCart();
     </script>
 
     <script src="script.js"></script>
