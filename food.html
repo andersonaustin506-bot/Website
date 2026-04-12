@@ -155,37 +155,37 @@
                 <img src="food 1.png" alt="Hills Science Diet Sensitive Stomach salmon and vegetable dog food can">
                 <h3>Sensitive Stomach Salmon</h3>
                 <p>$4.49</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Sensitive Stomach Salmon', 4.49)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="food 2.png" alt="Hills Science Diet Turkey and Barley senior dog food can">
                 <h3>Turkey & Barley Adult 7+</h3>
                 <p>$3.69</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Turkey & Barley Adult 7+', 3.69)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="food 3.png" alt="Hills Science Diet Turkey and Barley adult dog food can">
                 <h3>Turkey & Barley Adult 1-6</h3>
                 <p>$3.49</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Turkey & Barley Adult 1-6', 3.49)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="food 4.png" alt="Hills Science Diet Savory Stew Beef and Zucchini dog food can">
                 <h3>Savory Stew Beef & Zucchini</h3>
                 <p>$3.99</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Savory Stew Beef & Zucchini', 3.99)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="food 5.png" alt="Hills Science Diet Sensitive Stomach chicken and vegetable dog food can">
                 <h3>Sensitive Stomach Chicken</h3>
                 <p>$4.29</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Sensitive Stomach Chicken', 4.29)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="food 6.png" alt="Hills Science Diet Perfect Weight chicken and vegetable dog food can">
                 <h3>Perfect Weight Chicken</h3>
                 <p>$4.29</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Perfect Weight Chicken', 4.29)">Add to Cart</button>
             </div>
         </div>
     </main>
@@ -216,6 +216,21 @@
         }
     </script>
     <!-- acs tab end -->
+
+    <!-- Cart logic - shared with cart.html via localStorage -->
+    <script>
+        function addToCart(name, price) {
+            var raw = localStorage.getItem("petGoalsCart");
+            var cart = raw ? JSON.parse(raw) : [];
+            if (cart.length >= 3) {
+                alert("Cart limit reached! You can only check out 3 items at a time.");
+                return;
+            }
+            cart.push({ name: name, price: price });
+            localStorage.setItem("petGoalsCart", JSON.stringify(cart));
+            alert(name + " added to cart!");
+        }
+    </script>
 
     <script src="script.js"></script>
 </body>
