@@ -155,37 +155,37 @@
                 <img src="misc1.webp" alt="Ruffwear Basecamp dog bowl mat in gray">
                 <h3>Basecamp Bowl Mat</h3>
                 <p>$24.49</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Basecamp Bowl Mat', 24.49)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="misc2.webp" alt="Ruffwear Treat Trader dog treat pouch in brown">
                 <h3>Treat Trader Pouch</h3>
                 <p>$44.99</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Treat Trader Pouch', 44.99)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="misc3.webp" alt="Ruffwear Home Trail hip pack in brown">
                 <h3>Home Trail Hip Pack</h3>
                 <p>$49.99</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Home Trail Hip Pack', 49.99)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="misc4.webp" alt="Ruffwear Kibble Kaddie dog food carrier in gray">
                 <h3>Kibble Kaddie Carrier</h3>
                 <p>$49.99</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Kibble Kaddie Carrier', 49.99)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="misc5.webp" alt="Ruffwear Dirtbag dog car seat cover in gray">
                 <h3>Dirtbag Car Seat Cover</h3>
                 <p>$119.99</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Dirtbag Car Seat Cover', 119.99)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="misc6.webp" alt="Ruffwear Hitch Hiker dog backpack carrier in gray">
                 <h3>Hitch Hiker Backpack</h3>
                 <p>$99.99</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart('Hitch Hiker Backpack', 99.99)">Add to Cart</button>
             </div>
         </div>
     </main>
@@ -216,6 +216,21 @@
         }
     </script>
     <!-- acs tab end -->
+
+    <!-- Cart logic - shared with cart.html via localStorage -->
+    <script>
+        function addToCart(name, price) {
+            var raw = localStorage.getItem("petGoalsCart");
+            var cart = raw ? JSON.parse(raw) : [];
+            if (cart.length >= 3) {
+                alert("Cart limit reached! You can only check out 3 items at a time.");
+                return;
+            }
+            cart.push({ name: name, price: price });
+            localStorage.setItem("petGoalsCart", JSON.stringify(cart));
+            alert(name + " added to cart!");
+        }
+    </script>
 
     <script src="script.js"></script>
 </body>
