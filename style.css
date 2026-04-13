@@ -61,4 +61,15 @@ button:hover {
     .welcome-popup {
         padding: 20px !important;
     }
+
+    /* Make header at least 46px tall on mobile this is needed for the checklist*/
+    .header-right a {
+        display: flex;
+        align-items: center;
+        min-height: 46px;
+        padding: 8px;
+    }
+    .cart-icon {
+        height: 40px !important;
+    }
 }
