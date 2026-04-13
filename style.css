@@ -1,10 +1,64 @@
-/* shame on me for not checking that i need an external CSS for someething, anything I assume. I have been just throwing my CSS in the file it was needed in but ill make sure somethign with CSS is controled from this file */
-
-/* refernce this for checklist later me!  */
+/* external stylesheet */
 
 /* Make all "Add to Cart" buttons highlight across the whole site */
-
 button:hover {
     background-color: #c8c8c8 !important;
     transition: background-color 0.2s;
+}
+
+/* mobile fixes, lets see if this works at 768px */
+
+@media (max-width: 768px) {
+
+    /* Hide the centered "PET GOALS" text logo on mobile */
+    header .text-logo {
+        display: none !important;
+    }
+
+    /* Make the main logo smaller on mobile */
+    header .logo {
+        width: 90px !important;
+    }
+
+    /* Smaller header text */
+    header a {
+        font-size: 16px !important;
+    }
+
+    /* Stack the category tiles vertically instead of side-by-side */
+    .categories {
+        flex-direction: column !important;
+    }
+    .categories img {
+        width: 50% !important;
+        max-width: 200px !important;
+    }
+
+    /* Product cards: 1 per row rathern then 3 */
+    .product {
+        width: 100% !important;
+    }
+    .product img {
+        width: 50% !important;
+        max-width: 200px !important;
+    }
+
+    /* stack vertically instead of side-by-side (about sec) */
+    .about {
+        flex-direction: column !important;
+        padding: 20px !important;
+    }
+    .about-text {
+        padding-right: 0 !important;
+    }
+    .about img {
+        width: 60% !important;
+        max-width: 200px !important;
+        margin-top: 20px !important;
+    }
+
+    /* Welcome popup smaller on mobile */
+    .welcome-popup {
+        padding: 20px !important;
+    }
 }
