@@ -98,6 +98,74 @@
         height: 40px;
     }
 
+    /* Welcome popup CSS */
+    .welcome-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+    }
+    .welcome-popup {
+        background-color: white;
+        max-width: 600px;
+        width: 90%;
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        text-align: center;
+    }
+    .welcome-popup img.welcome-logo {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .welcome-popup h2 {
+        margin: 0 0 15px 0;
+        font-size: 24px;
+    }
+    .welcome-popup p {
+        text-align: left;
+        margin: 10px 0;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    .welcome-popup ul {
+        text-align: left;
+        padding-left: 20px;
+        font-size: 14px;
+    }
+    .welcome-popup ul li {
+        margin-bottom: 6px;
+        word-break: break-word;
+    }
+    .welcome-popup a {
+        color: #1a5fb4;
+        text-decoration: underline;
+    }
+    .welcome-popup button {
+        background-color: #444;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 15px;
+    }
+    .welcome-popup button:hover {
+        background-color: #222;
+    }
+    /* Welcome popup CSS ends */
+
     /* Accessibility tab CSS starts, the goal is to make a tab that I can put later accessibility options in, for now ill start with the dis font */
     .access-tab {
         position: fixed;
@@ -149,6 +217,29 @@
     <title>Pet Goals</title>
 </head>
 <body>
+
+    <!-- Welcome popup starts (HTML) -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-popup">
+            <img class="welcome-logo" src="logo.png" alt="Pet Goals logo">
+            <h2>Welcome to Pet Goals!</h2>
+            <p>This is a demo website made for the class SDEV153. If you are here for a peer review, make sure to use the listed demo login when testing the account area of the website.</p>
+            <p>Due to the academic origins of this website, I myself do not claim ownership of anything listed on this website; all rights are reserved to their original owners. Links to the assets used in this website are listed below.</p>
+            <p>Lastly, no data will be collected in any shape or form for this website. All data is stored locally in your browser and is not susceptible to tracking or conventional hacking (over a server).</p>
+            <p>Thank you for reading, and have a happy time shopping with us!</p>
+            <ul>
+                <li><a href="https://www.chewy.com/" target="_blank">https://www.chewy.com/</a> (Used as a fake partner)</li>
+                <li><a href="https://www.petsmart.com/" target="_blank">https://www.petsmart.com/</a> (Used as a fake partner)</li>
+                <li><a href="https://www.aspca.org/" target="_blank">https://www.aspca.org/</a> (Used as a fake partner)</li>
+                <li><a href="https://www.pawstruck.com/" target="_blank">https://www.pawstruck.com/</a> (Products used for the treats part of the website)</li>
+                <li><a href="https://www.milkbone.com/" target="_blank">https://www.milkbone.com/</a> (Products used for the treats part of the website)</li>
+                <li><a href="https://www.hillspet.com/" target="_blank">https://www.hillspet.com/</a> (Products used for the food part of the website)</li>
+                <li><a href="https://ruffwear.com/" target="_blank">https://ruffwear.com/</a> (Products used for the misc part of the website)</li>
+            </ul>
+            <button onclick="closeWelcome()">Close</button>
+        </div>
+    </div>
+    <!-- Welcome popup ends -->
 
     <!-- Accessibility tab starts -->
     <div class="access-tab" onclick="togglePanel()">Accessibility</div>
@@ -212,7 +303,7 @@
             document.getElementById("accessPanel").classList.toggle("open");
         }
 
-        // remember if th font is on
+        // remember if the font is on
         function toggleDyslexic() {
             document.body.classList.toggle("dyslexic");
             localStorage.setItem("dyslexic", document.body.classList.contains("dyslexic"));
@@ -222,6 +313,11 @@
         if (localStorage.getItem("dyslexic") === "true") {
             document.body.classList.add("dyslexic");
             document.getElementById("dyslexicToggle").checked = true;
+        }
+
+        // closes the welcome popup when the close button is clicked
+        function closeWelcome() {
+            document.getElementById("welcomeOverlay").style.display = "none";
         }
     </script>
     <!-- Accessibility tab JavaScript ends here -->
