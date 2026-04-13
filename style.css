@@ -3,6 +3,8 @@
 /* refernce this for checklist later me!  */
 
 /* Make all "Add to Cart" buttons highlight across the whole site */
+
 button:hover {
     background-color: #c8c8c8 !important;
     transition: background-color 0.2s;
+}
