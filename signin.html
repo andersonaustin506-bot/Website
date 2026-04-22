@@ -227,6 +227,28 @@
             // DOM: getElementById finds the message paragraph so we can update it later
             var message = document.getElementById("message");
 
+            // Form validation as needed by the checklist (IE form VAL)
+            // Check if email is empty
+            if (email === "") {
+                message.style.color = "red";
+                message.textContent = "Please enter your email.";
+                return;
+            }
+
+            // Check if email looks like a real email (has @ and a dot)
+            if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+                message.style.color = "red";
+                message.textContent = "Please enter a valid email address.";
+                return;
+            }
+
+            // Check if password is empty
+            if (password === "") {
+                message.style.color = "red";
+                message.textContent = "Please enter your password.";
+                return;
+            }
+
             // this checks if the details put in is right, this is just a dummy account. Had to look up how to do this.
             if (email === "test@petgoals.com" && password === "password123") {
                 // DOM updates if someone gets the right info in
