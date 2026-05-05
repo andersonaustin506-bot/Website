@@ -44,9 +44,14 @@
     .spacer {
         height: 20px;
     }
+
+    /* Category tiles - card style with hover */
     .categories {
         display: flex;
-        text-align: center;
+        gap: 24px;
+        padding: 20px 40px 40px 40px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
     .categories a {
         flex: 1;
@@ -55,12 +60,30 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: flex-start;
+        background-color: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 30px 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .categories a:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        border-color: #c0c0c0;
     }
     .categories img {
-        width: 60%;
+        width: 70%;
+        max-width: 220px;
         height: auto;
     }
+    .categories h2 {
+        margin-top: 20px;
+        margin-bottom: 0;
+        font-size: 22px;
+    }
+
     .about {
         display: flex;
         align-items: center;
