@@ -5,26 +5,20 @@ button:hover {
     background-color: #c8c8c8 !important;
     transition: background-color 0.2s;
 }
-
 /* mobile fixes, lets see if this works at 768px */
-
 @media (max-width: 768px) {
-
     /* Hide the centered "PET GOALS" text logo on mobile */
     header .text-logo {
         display: none !important;
     }
-
     /* Make the main logo smaller on mobile */
     header .logo {
         width: 90px !important;
     }
-
     /* Smaller header text */
     header a {
         font-size: 16px !important;
     }
-
     /* Stack the category tiles vertically instead of side-by-side */
     .categories {
         flex-direction: column !important;
@@ -33,7 +27,6 @@ button:hover {
         width: 50% !important;
         max-width: 200px !important;
     }
-
     /* Product cards: 1 per row rathern then 3 */
     .product {
         width: 100% !important;
@@ -42,7 +35,6 @@ button:hover {
         width: 50% !important;
         max-width: 200px !important;
     }
-
     /* stack vertically instead of side-by-side (about sec) */
     .about {
         flex-direction: column !important;
@@ -56,12 +48,10 @@ button:hover {
         max-width: 200px !important;
         margin-top: 20px !important;
     }
-
     /* Welcome popup smaller on mobile */
     .welcome-popup {
         padding: 20px !important;
     }
-
     /* Make header at least 46px tall on mobile this is needed for the checklist*/
     .header-right a {
         display: flex;
@@ -72,4 +62,43 @@ button:hover {
     .cart-icon {
         height: 40px !important;
     }
+    /* Stack category nav vertically on mobile */
+    .category-nav {
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+    .category-nav a {
+        justify-content: center;
+    }
+}
+/* Better Top Bar */
+.category-nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background-color: #f0f0f0;
+    padding: 12px 20px;
+    border-bottom: 1px solid #ccc;
+}
+.category-nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+.category-nav a:hover {
+    background-color: #d8d8d8;
+}
+.category-nav a.active {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+.category-nav img {
+    height: 24px;
+    width: auto;
 }
