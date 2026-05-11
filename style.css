@@ -102,9 +102,9 @@ button:hover {
     width: auto;
 }
 
-/* === Shared site-wide styles moved out of inline <style> blocks === */
+/* site-wide styles moved from main blocks for checklist */
 
-/* Body / typography */
+/* Body and typography */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -166,7 +166,7 @@ footer {
     height: 40px;
 }
 
-/* Accessibility tab + panel (sliding accessibility menu) */
+/* Accessibility tab + panel */
 .access-tab {
     position: fixed;
     left: 0;
